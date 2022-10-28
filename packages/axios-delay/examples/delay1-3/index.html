@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./index.js"></script>
+  <script>
+    (async () => {
+      await delay1(1000);
+      console.log('输出这句 delay1')
+    })()
+  </script>
+
+  <script>
+      (async () => {
+        const result = await delay2(2000, { value: 'luo' })
+        console.log('输出这个 delay2', result)
+      })()
+  </script>
+
+  <script>
+
+      (async () => {
+        try {
+          const result = await delay3(3000, { value: 'luo', willResolve: false })
+          console.log('永远不会输出这句 delay3')
+        } catch (error) {
+          console.log('输出结果 delay3', error)
+        }
+      })()
+  </script>
+
+</body>
+
+</html>
